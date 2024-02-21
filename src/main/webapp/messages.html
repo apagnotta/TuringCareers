@@ -51,7 +51,7 @@
                 .push([f])},catch:function(){return k&&new k()},c:l}};})(window,document,[]);
   Talk.ready.then(function () {
     var me = new Talk.User({
-      id: '14',
+      id: '16',
       name: 'Stordatron',
       email: 'alice@example.com',
 
@@ -62,31 +62,20 @@
     });
 
     var other = new Talk.User({
-      id: '15',
+      id: '17',
       name: 'Turing Careers',
       email: 'TuringCareers@example.com',
-      welcomeMessage: 'Ciao',
-    });
-    var other2 = new Talk.User({
-      id: '16',
-      name: 'Letteralmente Gianluca Festa',
-      email: 'Sebastian@example.com',
-      welcomeMessage: 'Hey, how can I help?',
+      welcomeMessage: 'Benvenuto su Turing Careers!',
     });
 
     var conversation = talkSession.getOrCreateConversation(
             Talk.oneOnOneId(me, other)
     );
-    var conversation2 = talkSession.getOrCreateConversation(
-            Talk.oneOnOneId(me, other2)
-    );
     conversation.setParticipant(me);
     conversation.setParticipant(other);
 
-    conversation2.setParticipant(me);
-    conversation2.setParticipant(other2);
     var inbox = talkSession.createInbox();
-    inbox.select(conversation2);
+    inbox.select(conversation);
     inbox.mount(document.getElementById('talkjs-container'));
   });
 </script>
